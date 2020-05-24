@@ -29,15 +29,13 @@
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
         <platformTool>Simulator</platformTool>
-        <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>2.20</languageToolchainVersion>
-        <platform>3</platform>
+        <languageToolchain>MPASMWIN</languageToolchain>
+        <languageToolchainVersion>5.87</languageToolchainVersion>
+        <platform>2</platform>
       </toolsSet>
       <packs>
         <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.2.33"/>
       </packs>
-      <ScriptingSettings>
-      </ScriptingSettings>
       <compileType>
         <linkerTool>
           <linkerLibItems>
@@ -142,6 +140,20 @@
         <property key="program-the-device-with-default-config-words" value="true"/>
         <property key="remove-unused-sections" value="true"/>
       </HI-TECH-LINK>
+      <MPASMWIN-AS>
+        <property key="cross.reference.file" value=""/>
+        <property key="default.radix" value="HEX"/>
+        <property key="enable.case.sensitivity" value="true"/>
+        <property key="hex.output.format" value="INHX32"/>
+        <property key="preprocessor.macros" value=""/>
+        <property key="warning.level" value="0"/>
+      </MPASMWIN-AS>
+      <MPASMWIN-LD>
+        <property key="cod-file" value="false"/>
+        <property key="extra-lib-directories" value=""/>
+        <property key="hex-output-format" value="INHX32"/>
+        <property key="map-file" value="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"/>
+      </MPASMWIN-LD>
       <Simulator>
         <property key="codecoverage.enabled" value="Disable"/>
         <property key="codecoverage.enableoutputtofile" value="false"/>
@@ -166,13 +178,19 @@
         <property key="periphComp6.gte" value="gt"/>
         <property key="reset.scl" value="false"/>
         <property key="reset.type" value="MCLR"/>
-        <property key="toolpack.updateoptions"
-                  value="toolpack.updateoptions.uselatestoolpack"/>
-        <property key="toolpack.updateoptions.packversion"
-                  value="Press to select which tool pack to use"/>
+        <property key="tracecontrol.include.timestamp" value="summarydataenabled"/>
+        <property key="tracecontrol.select" value="0"/>
+        <property key="tracecontrol.stallontracebufferfull" value="false"/>
+        <property key="tracecontrol.timestamp" value="0"/>
+        <property key="tracecontrol.tracebufmax" value="546000"/>
+        <property key="tracecontrol.tracefile" value="defmplabxtrace.log"/>
+        <property key="tracecontrol.traceresetonrun" value="false"/>
         <property key="uart0io.output" value="window"/>
         <property key="uart0io.outputfile" value=""/>
         <property key="uart0io.uartioenabled" value="false"/>
+        <property key="uart10io.output" value="window"/>
+        <property key="uart10io.outputfile" value=""/>
+        <property key="uart10io.uartioenabled" value="false"/>
         <property key="uart1io.output" value="window"/>
         <property key="uart1io.outputfile" value=""/>
         <property key="uart1io.uartioenabled" value="false"/>
@@ -191,48 +209,15 @@
         <property key="uart6io.output" value="window"/>
         <property key="uart6io.outputfile" value=""/>
         <property key="uart6io.uartioenabled" value="false"/>
-        <property key="usart0io.output" value="window"/>
-        <property key="usart0io.outputfile" value=""/>
-        <property key="usart0io.uartioenabled" value="false"/>
-        <property key="usart1io.output" value="window"/>
-        <property key="usart1io.outputfile" value=""/>
-        <property key="usart1io.uartioenabled" value="false"/>
-        <property key="usart2io.output" value="window"/>
-        <property key="usart2io.outputfile" value=""/>
-        <property key="usart2io.uartioenabled" value="false"/>
-        <property key="usart3io.output" value="window"/>
-        <property key="usart3io.outputfile" value=""/>
-        <property key="usart3io.uartioenabled" value="false"/>
-        <property key="usart4io.output" value="window"/>
-        <property key="usart4io.outputfile" value=""/>
-        <property key="usart4io.uartioenabled" value="false"/>
-        <property key="usartc0io.output" value="window"/>
-        <property key="usartc0io.outputfile" value=""/>
-        <property key="usartc0io.uartioenabled" value="false"/>
-        <property key="usartc1io.output" value="window"/>
-        <property key="usartc1io.outputfile" value=""/>
-        <property key="usartc1io.uartioenabled" value="false"/>
-        <property key="usartd0io.output" value="window"/>
-        <property key="usartd0io.outputfile" value=""/>
-        <property key="usartd0io.uartioenabled" value="false"/>
-        <property key="usartd1io.output" value="window"/>
-        <property key="usartd1io.outputfile" value=""/>
-        <property key="usartd1io.uartioenabled" value="false"/>
-        <property key="usarte0io.output" value="window"/>
-        <property key="usarte0io.outputfile" value=""/>
-        <property key="usarte0io.uartioenabled" value="false"/>
-        <property key="usarte1io.output" value="window"/>
-        <property key="usarte1io.outputfile" value=""/>
-        <property key="usarte1io.uartioenabled" value="false"/>
-        <property key="usarte2io.output" value="window"/>
-        <property key="usarte2io.outputfile" value=""/>
-        <property key="usarte2io.uartioenabled" value="false"/>
-        <property key="usartf0io.output" value="window"/>
-        <property key="usartf0io.outputfile" value=""/>
-        <property key="usartf0io.uartioenabled" value="false"/>
-        <property key="usartf1io.output" value="window"/>
-        <property key="usartf1io.outputfile" value=""/>
-        <property key="usartf1io.uartioenabled" value="false"/>
+        <property key="uart7io.output" value="window"/>
+        <property key="uart7io.outputfile" value=""/>
+        <property key="uart7io.uartioenabled" value="false"/>
+        <property key="uart8io.output" value="window"/>
+        <property key="uart8io.outputfile" value=""/>
+        <property key="uart8io.uartioenabled" value="false"/>
+        <property key="uart9io.output" value="window"/>
+        <property key="uart9io.outputfile" value=""/>
+        <property key="uart9io.uartioenabled" value="false"/>
         <property key="warningmessagebreakoptions.W0001_CORE_BITREV_MODULO_EN"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0002_CORE_SECURE_MEMORYACCESS"
@@ -617,49 +602,13 @@
         <property key="stack-type" value="compiled"/>
         <property key="user-pack-device-support" value=""/>
       </XC8-config-global>
-      <pic-as-assembler>
-        <property key="fmax-errors" value="20"/>
-        <property key="list-custom-assembler-options" value=""/>
-        <property key="list-custom-preprocessor-options" value=""/>
-        <property key="list-ddefine-symbols" value=""/>
-        <property key="list-define-symbols" value=""/>
-        <property key="list-include-directories" value=""/>
-        <property key="suppress-warnings" value="false"/>
-        <property key="verbose" value="false"/>
-        <property key="warning-level" value="0"/>
-        <property key="xassembler-with-cpp" value="true"/>
-      </pic-as-assembler>
-      <pic-as-global>
-        <property key="custom-dfp" value=""/>
-        <property key="instruction-set" value="std"/>
-        <property key="summary-class" value="false"/>
-        <property key="summary-file" value="false"/>
-        <property key="summary-hex" value="false"/>
-        <property key="summary-mem" value="true"/>
-        <property key="summary-psect" value="false"/>
-        <property key="summary-sha1" value="false"/>
-        <property key="summary-sha256" value="false"/>
-        <property key="summary-xml" value="false"/>
-        <property key="summary-xmlfull" value="false"/>
-      </pic-as-global>
-      <pic-as-linker>
-        <property key="linker-callgraph" value="std"/>
-        <property key="linker-checksum" value=""/>
-        <property key="linker-custom-options" value=""/>
-        <property key="linker-fill" value=""/>
-        <property key="linker-format-hex-file-for-download" value="false"/>
-        <property key="linker-libraries" value=""/>
-        <property key="linker-library-search-paths" value=""/>
-        <property key="linker-maxi-chip" value="false"/>
-        <property key="linker-produce-elf-dwarf-output" value="true"/>
-        <property key="linker-produce-intel-hex-extended-address-zero-output"
-                  value="false"/>
-        <property key="linker-produce-intel-hex-output" value="false"/>
-        <property key="linker-ram" value=""/>
-        <property key="linker-reserve" value=""/>
-        <property key="linker-rom" value=""/>
-        <property key="linker-serial" value=""/>
-      </pic-as-linker>
+      <mpasmsuite>
+        <property key="absolute-mode" value="false"/>
+        <property key="eeprom-width" value="8"/>
+        <property key="extended-mode" value="false"/>
+        <property key="extended-mode-mpasm" value="false"/>
+        <property key="extended-mode-mplink" value="false"/>
+      </mpasmsuite>
     </conf>
   </confs>
 </configurationDescriptor>

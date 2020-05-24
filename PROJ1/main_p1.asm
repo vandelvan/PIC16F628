@@ -15,11 +15,11 @@
 
 ; ASM source line config statements
 
-;#include "p16F628.inc"
+#include "p16f628.inc"
 
 ; CONFIG
 ; __config 0xFF18
-; __CONFIG _FOSC_INTOSCIO & _WDTE_OFF & _PWRTE_OFF & _MCLRE_OFF & _BOREN_OFF & _LVP_OFF & _CPD_OFF & _CP_OFF
+ __CONFIG _FOSC_INTOSCIO & _WDTE_OFF & _PWRTE_OFF & _MCLRE_OFF & _BOREN_OFF & _LVP_OFF & _CPD_OFF & _CP_OFF
 
 
 ;*******************************************************************************
@@ -64,15 +64,14 @@ MAIN_PROG
 ;COMENZAMOS A ROTAR BIT HACIA LA DERECHA
    ;if
    BTFSS    PORTB,0		    ;verificamos si el bit 0 del puerto b este en 1, 
-   GOTO	    SIGUE_ROTANDO_DER	    ; si no es asi, seguimos rotando hacia la derecha
+   GOTO	    ROTA_DER	    ; si no es asi, seguimos rotando hacia la derecha
    GOTO	    ROTA_IZQ		    ; si es asi, significa que ahora tenemos que rotar hacia el otro lado
- 
+ROTA_DER
    RRF	    PORTB
    CALL	    delay
 
-   
-   
 ;ROTAMOS HACIA LA IZQUIERDA
+ROTA_IZQ
    RLF	    PORTB
    CALL	    delay
 
