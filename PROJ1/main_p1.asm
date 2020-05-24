@@ -62,13 +62,14 @@ MAIN_PROG
    MOVWF    PORTB
    CALL	    delay
    GOTO	    VERIFY
-;COMENZAMOS A ROTAR BIT HACIA LA DERECHA
+   
 VERIFY
    ;if
    BTFSS    PORTB,0	;verificamos si el bit 0 del puerto b este en 1, 
    GOTO	    ROTA_DER	; si no es asi, seguimos rotando hacia la derecha
    GOTO	    ROTA_IZQ	; si es asi, significa que ahora tenemos que rotar hacia el otro lado
-   
+
+;COMENZAMOS A ROTAR BIT HACIA LA DERECHA
 ROTA_DER
    RRF	    PORTB
    CALL	    delay
