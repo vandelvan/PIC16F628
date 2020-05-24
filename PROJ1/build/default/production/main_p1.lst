@@ -1,0 +1,52 @@
+
+
+Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
+                                                                                                           Sun May 24 15:32:04 2020
+
+
+     1                           	processor	16F628
+     2                           	pagewidth 132
+     3                           	psect	pa_nodes0,global,class=CODE,delta=2
+     4                           
+     5                           ;*******************************************************************************
+     6                           ; *
+     7                           ; Filename: main_p1.asm *
+     8                           ; Date: 24/may/20 *
+     9                           ; File Version: 1.0 *
+    10                           ; Author: Orozco Torrez Jose Ivan *
+    11                           ; Company: CUCEI UDG *
+    12                           ; Description: Rotacion puerto MSB *
+    13                           ; *
+    14                           ;*******************************************************************************
+    15                           ; TODO INSERT CONFIG HERE
+    16                           ; PIC16F628 Configuration Bit Settings
+    17                           ; ASM source line config statements
+    18                           ;#include "p16F628.inc"
+    19                           ; CONFIG
+    20                           ; __config 0xFF18
+    21                           ; __CONFIG _FOSC_INTOSCIO & _WDTE_OFF & _PWRTE_OFF & _MCLRE_OFF & _BOREN_OFF & _LVP_OFF & _CPD_OFF &
+      +                           _CP_OFF
+    22                           ;*******************************************************************************
+    23                           ; VARIABLE DEFINITIONS STARTING HERE
+    24  0020                     	;var_a se almacena en la direccion 20Hex de la memoria RAM (General Purpose Registers)
+    25  0021                     	;var_a se almacena en la direccion 21Hex
+    26  0022                     	;var_a se almacena en la direccion 21Hex
+    27  0023                     	;Declaramos variable var1
+    28  0026                     
+    29                           ;*******************************************************************************
+    30                           ; Reset Vector
+    31                           ;*******************************************************************************
+    32  0000  2800'              	goto	START	; go to beginning of program
+    33                           
+    34                           ;*******************************************************************************
+    35                           ; MAIN PROGRAM
+    36                           ;*******************************************************************************
+    37                           ;******** Configuramos puertos
+    38  0001  1400'              	bsf	STATUS,RP0	;Cambiamos al banco 1 de memoria, seteando RP0 en 1
+    39  0002  0180'              	clrf	TRISB	; Ponemos todos los bits del TRISB en 0 para indicar que son pines(bits) salidas
+    40  0003  1000'              	bcf	STATUS,RP0	;Regresamos al banco de memoria 0 limpiando o poniendo en 0 el bit RP0
+    41                           
+    42                           ;*****************************
+    43                           ;Programa principal
+    44  0004  3000'              	movlw	b
+    45  0005  0080'
