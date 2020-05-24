@@ -65,9 +65,16 @@ MAIN_PROG
    
 VERIFY
    ;if
-   BTFSS    PORTB,0	;verificamos si el bit 0 del puerto b este en 1, 
+   BTFSS    PORTB,0	;verificamos si el bit 0 del puerto b esta en 1, 
    GOTO	    ROTA_DER	; si no es asi, seguimos rotando hacia la derecha
    GOTO	    ROTA_IZQ	; si es asi, significa que ahora tenemos que rotar hacia el otro lado
+ 
+   
+VERIFYLEFT
+   ;if
+   BTFSS    PORTB,7	;verificamos si el bit 0 del puerto b esta en 1, 
+   GOTO	    ROTA_IZQ	; si es asi, significa que ahora tenemos que rotar hacia el otro lado
+   GOTO	    ROTA_DER	; si no es asi, seguimos rotando hacia la derecha
 
 ;COMENZAMOS A ROTAR BIT HACIA LA DERECHA
 ROTA_DER
@@ -79,7 +86,7 @@ ROTA_DER
 ROTA_IZQ
    RLF	    PORTB
    CALL	    delay
-   GOTO	    VERIFY
+   GOTO	    VERIFYLEFT
    
 
 delay
