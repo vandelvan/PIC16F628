@@ -1,6 +1,6 @@
 Message[302] /home/jorozco/Documentos/arq/PIC16F628/PROJ1/main_p1.asm 54 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[305] /home/jorozco/Documentos/arq/PIC16F628/PROJ1/main_p1.asm 70 : Using default destination of 1 (file).
-Message[305] /home/jorozco/Documentos/arq/PIC16F628/PROJ1/main_p1.asm 75 : Using default destination of 1 (file).
-Message[305] /home/jorozco/Documentos/arq/PIC16F628/PROJ1/main_p1.asm 87 : Using default destination of 1 (file).
-Message[305] /home/jorozco/Documentos/arq/PIC16F628/PROJ1/main_p1.asm 95 : Using default destination of 1 (file).
-Message[305] /home/jorozco/Documentos/arq/PIC16F628/PROJ1/main_p1.asm 103 : Using default destination of 1 (file).
+Message[305] /home/jorozco/Documentos/arq/PIC16F628/PROJ1/main_p1.asm 72 : Using default destination of 1 (file).
+Message[305] /home/jorozco/Documentos/arq/PIC16F628/PROJ1/main_p1.asm 78 : Using default destination of 1 (file).
+Message[305] /home/jorozco/Documentos/arq/PIC16F628/PROJ1/main_p1.asm 88 : Using default destination of 1 (file).
+Message[305] /home/jorozco/Documentos/arq/PIC16F628/PROJ1/main_p1.asm 96 : Using default destination of 1 (file).
+Message[305] /home/jorozco/Documentos/arq/PIC16F628/PROJ1/main_p1.asm 104 : Using default destination of 1 (file).

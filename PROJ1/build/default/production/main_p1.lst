@@ -1,4 +1,4 @@
-MPASM 5.87  /HOME/JOROZCO/DOCUMENTOS/ARQ/PIC   5-24-2020  15:50:03         PAGE  1
+MPASM 5.87  /HOME/JOROZCO/DOCUMENTOS/ARQ/PIC   5-24-2020  16:01:38         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00039 ;*******************************************************************************
                       00040 
                       00041 RES_VECT  CODE    0x0000            ; processor reset vector
-MPASM 5.87  /HOME/JOROZCO/DOCUMENTOS/ARQ/PIC   5-24-2020  15:50:03         PAGE  2
+MPASM 5.87  /HOME/JOROZCO/DOCUMENTOS/ARQ/PIC   5-24-2020  16:01:38         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -87,64 +87,65 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 0004   0086           00062    MOVWF    PORTB
 0005   2???           00063    CALL     delay
                       00064 ;COMENZAMOS A ROTAR BIT HACIA LA DERECHA
-                      00065    ;if
-0006   1C06           00066    BTFSS    PORTB,0                 ;verificamos si el bit 0 del puerto b este en 1, 
-0007   2???           00067    GOTO     ROTA_DER        ; si no es asi, seguimos rotando hacia la derecha
-0008   2???           00068    GOTO     ROTA_IZQ                ; si es asi, significa que ahora tenemos que rotar hacia el otro lad
+0006                  00065 VERIFY
+                      00066    ;if
+0006   1C06           00067    BTFSS    PORTB,0                 ;verificamos si el bit 0 del puerto b este en 1, 
+0007   2???           00068    GOTO     ROTA_DER        ; si no es asi, seguimos rotando hacia la derecha
+0008   2???           00069    GOTO     ROTA_IZQ                ; si es asi, significa que ahora tenemos que rotar hacia el otro lad
                             o
-0009                  00069 ROTA_DER
+                      00070    
+0009                  00071 ROTA_DER
 Message[305]: Using default destination of 1 (file).
-0009   0C86           00070    RRF      PORTB
-000A   2???           00071    CALL     delay
-                      00072 
-                      00073 ;ROTAMOS HACIA LA IZQUIERDA
-000B                  00074 ROTA_IZQ
+0009   0C86           00072    RRF      PORTB
+000A   2???           00073    CALL     delay
+000B   2???           00074    GOTO     VERIFY
+                      00075 
+                      00076 ;ROTAMOS HACIA LA IZQUIERDA
+000C                  00077 ROTA_IZQ
 Message[305]: Using default destination of 1 (file).
-000B   0D86           00075    RLF      PORTB
-000C   2???           00076    CALL     delay
-                      00077 
-                      00078    
-000D   2???           00079    GOTO     MAIN_PROG
-                      00080    
-                      00081 
-000E                  00082 delay
-                      00083 ;{
-000E   3004           00084     MOVLW   d'4'        ;inicializo var var_loop1
-000F   00A4           00085     MOVWF   var_loop1   ;con 255
-0010                  00086 dec_loop1
+000C   0D86           00078    RLF      PORTB
+000D   2???           00079    CALL     delay
+000E   2???           00080    GOTO     VERIFY
+                      00081    
+                      00082 
+000F                  00083 delay
+                      00084 ;{
+000F   3004           00085     MOVLW   d'4'        ;inicializo var var_loop1
+0010   00A4           00086     MOVWF   var_loop1   ;con 255
+0011                  00087 dec_loop1
 Message[305]: Using default destination of 1 (file).
-0010   0BA4           00087     DECFSZ  var_loop1   ;var_loop2--
-0011   2???           00088     GOTO    loop2       ;decrementa de nuevo
-0012   0008           00089     RETURN              ;regresamos al punto de llamada de la subrutina
-MPASM 5.87  /HOME/JOROZCO/DOCUMENTOS/ARQ/PIC   5-24-2020  15:50:03         PAGE  3
+0011   0BA4           00088     DECFSZ  var_loop1   ;var_loop2--
+0012   2???           00089     GOTO    loop2       ;decrementa de nuevo
+MPASM 5.87  /HOME/JOROZCO/DOCUMENTOS/ARQ/PIC   5-24-2020  16:01:38         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00090 
-0013                  00091 loop2
-0013   30FF           00092     MOVLW   d'255'      ;inicializo var var_loop2
-0014   00A5           00093     MOVWF   var_loop2   ;con 255
-0015                  00094 dec_loop2
+0013   0008           00090     RETURN              ;regresamos al punto de llamada de la subrutina
+                      00091 
+0014                  00092 loop2
+0014   30FF           00093     MOVLW   d'255'      ;inicializo var var_loop2
+0015   00A5           00094     MOVWF   var_loop2   ;con 255
+0016                  00095 dec_loop2
 Message[305]: Using default destination of 1 (file).
-0015   0BA5           00095     DECFSZ  var_loop2   ;var_loop2--
-0016   2???           00096     GOTO    loop3       ;decrementa de nuevo
-0017   2???           00097     GOTO    dec_loop1
-                      00098  
-0018                  00099 loop3
-0018   30FF           00100     MOVLW   d'255'      ;inicializo var var_loop3
-0019   00A6           00101     MOVWF   var_loop3   ;con 255
-001A                  00102 dec_loop3
+0016   0BA5           00096     DECFSZ  var_loop2   ;var_loop2--
+0017   2???           00097     GOTO    loop3       ;decrementa de nuevo
+0018   2???           00098     GOTO    dec_loop1
+                      00099  
+0019                  00100 loop3
+0019   30FF           00101     MOVLW   d'255'      ;inicializo var var_loop3
+001A   00A6           00102     MOVWF   var_loop3   ;con 255
+001B                  00103 dec_loop3
 Message[305]: Using default destination of 1 (file).
-001A   0BA6           00103     DECFSZ  var_loop3   ;var_loop3--
-001B   2???           00104     GOTO    dec_loop3   ;decrementa de nuevo
-001C   2???           00105     GOTO    dec_loop2
-                      00106 ;}
-                      00107     
-001D                  00108 END_PROG 
-3F18                  00109     END
-MPASM 5.87  /HOME/JOROZCO/DOCUMENTOS/ARQ/PIC   5-24-2020  15:50:03         PAGE  4
+001B   0BA6           00104     DECFSZ  var_loop3   ;var_loop3--
+001C   2???           00105     GOTO    dec_loop3   ;decrementa de nuevo
+001D   2???           00106     GOTO    dec_loop2
+                      00107 ;}
+                      00108     
+001E                  00109 END_PROG 
+3F18                  00110     END
+MPASM 5.87  /HOME/JOROZCO/DOCUMENTOS/ARQ/PIC   5-24-2020  16:01:38         PAGE  4
 
 
 SYMBOL TABLE
@@ -188,7 +189,7 @@ EECON2                            0000009D
 EEDATA                            0000009A
 EEIE                              00000007
 EEIF                              00000007
-END_PROG                          0000001D
+END_PROG                          0000001E
 F                                 00000001
 FERR                              00000002
 FSR                               00000004
@@ -203,7 +204,7 @@ MAIN_PROG                         00000003
 NOT_BO                            00000000
 NOT_BOD                           00000000
 NOT_BOR                           00000000
-MPASM 5.87  /HOME/JOROZCO/DOCUMENTOS/ARQ/PIC   5-24-2020  15:50:03         PAGE  5
+MPASM 5.87  /HOME/JOROZCO/DOCUMENTOS/ARQ/PIC   5-24-2020  16:01:38         PAGE  5
 
 
 SYMBOL TABLE
@@ -254,7 +255,7 @@ RCREG                             0000001A
 RCSTA                             00000018
 RD                                00000000
 ROTA_DER                          00000009
-ROTA_IZQ                          0000000B
+ROTA_IZQ                          0000000C
 RP0                               00000005
 RP1                               00000006
 RX9                               00000006
@@ -262,7 +263,7 @@ RX9D                              00000000
 SPBRG                             00000099
 SPEN                              00000007
 SREN                              00000005
-MPASM 5.87  /HOME/JOROZCO/DOCUMENTOS/ARQ/PIC   5-24-2020  15:50:03         PAGE  6
+MPASM 5.87  /HOME/JOROZCO/DOCUMENTOS/ARQ/PIC   5-24-2020  16:01:38         PAGE  6
 
 
 SYMBOL TABLE
@@ -321,7 +322,7 @@ TRISB7                            00000007
 TRMT                              00000001
 TX9                               00000006
 TX9D                              00000000
-MPASM 5.87  /HOME/JOROZCO/DOCUMENTOS/ARQ/PIC   5-24-2020  15:50:03         PAGE  7
+MPASM 5.87  /HOME/JOROZCO/DOCUMENTOS/ARQ/PIC   5-24-2020  16:01:38         PAGE  7
 
 
 SYMBOL TABLE
@@ -332,6 +333,7 @@ TXIE                              00000004
 TXIF                              00000004
 TXREG                             00000019
 TXSTA                             00000098
+VERIFY                            00000006
 VR0                               00000000
 VR1                               00000001
 VR2                               00000002
@@ -379,13 +381,13 @@ _LP_OSC                           00003FEC
 _LVP_OFF                          00003F7F
 _LVP_ON                           00003FFF
 _MCLRE_OFF                        00003FDF
-_MCLRE_ON                         00003FFF
-MPASM 5.87  /HOME/JOROZCO/DOCUMENTOS/ARQ/PIC   5-24-2020  15:50:03         PAGE  8
+MPASM 5.87  /HOME/JOROZCO/DOCUMENTOS/ARQ/PIC   5-24-2020  16:01:38         PAGE  8
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+_MCLRE_ON                         00003FFF
 _PWRTE_OFF                        00003FFF
 _PWRTE_ON                         00003FF7
 _WDTE_OFF                         00003FFB
@@ -394,12 +396,12 @@ _WDT_OFF                          00003FFB
 _WDT_ON                           00003FFF
 _XT_OSC                           00003FED
 __16F628                          00000001
-dec_loop1                         00000010
-dec_loop2                         00000015
-dec_loop3                         0000001A
-delay                             0000000E
-loop2                             00000013
-loop3                             00000018
+dec_loop1                         00000011
+dec_loop2                         00000016
+dec_loop3                         0000001B
+delay                             0000000F
+loop2                             00000014
+loop3                             00000019
 var1                              00000023
 var_a                             00000020
 var_b                             00000021
